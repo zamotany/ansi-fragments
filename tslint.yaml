@@ -1,0 +1,5 @@
+---
+  extends:
+    - "@callstack/tslint-config"
+  rules:
+    prefer-array-literal: false
