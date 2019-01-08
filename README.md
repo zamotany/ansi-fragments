@@ -7,7 +7,7 @@
 [![Chat][chat-badge]][chat]
 [![Code of Conduct][coc-badge]][coc]
 
-A tiny library with builders to help making logs/CLI pretty with nice DX.
+A tiny library with builders to help making logs/CLI pretty with a nice DX.
 
 ## Installation
 

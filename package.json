@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "build/index.js",
   "license": "MIT",
-  "description": "A tiny library with builders to help making logs/CLI pretty with nice DX.",
+  "description": "A tiny library with builders to help making logs/CLI pretty with a nice DX.",
   "repository": {
     "type": "git",
     "url": "https://github.com/zamotany/ansi-fragments.git"
