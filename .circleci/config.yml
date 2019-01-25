@@ -6,7 +6,7 @@ defaults: &defaults
   working_directory: ~/ansi-fragments
 
 jobs:
-  test:
+  build:
     <<: *defaults
     steps:
       - checkout
