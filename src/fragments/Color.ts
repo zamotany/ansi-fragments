@@ -35,7 +35,8 @@ export type AnsiColor =
   | 'bgBrightBlue'
   | 'bgBrightMagenta'
   | 'bgBrightCyan'
-  | 'bgBrightWhite';
+  | 'bgBrightWhite'
+  | 'none';
 
 export function color(
   ansiColor: AnsiColor,
@@ -56,7 +57,9 @@ export class Color implements IFragment {
   build(): string {
     const children = buildChildren(this.children);
 
-    if (this.color in colorette) {
+    if (this.color === 'none') {
+      return children;
+    } else if (this.color in colorette) {
       // tslint:disable-next-line: no-unsafe-any no-any
       return (colorette as any)[this.color](children);
     }

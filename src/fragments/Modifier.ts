@@ -8,7 +8,8 @@ export type AnsiModifier =
   | 'hidden'
   | 'italic'
   | 'underline'
-  | 'strikethrough';
+  | 'strikethrough'
+  | 'none';
 
 export function modifier(
   ansiModifier: AnsiModifier,
@@ -28,8 +29,9 @@ export class Modifier implements IFragment {
 
   build(): string {
     const children = buildChildren(this.children);
-
-    if (this.modifier in colorette) {
+    if (this.modifier === 'none') {
+      return children;
+    } else if (this.modifier in colorette) {
       // tslint:disable-next-line: no-unsafe-any no-any
       return (colorette as any)[this.modifier](children);
     }
