@@ -4,6 +4,7 @@ import { container } from '../Container';
 import { pad } from '../Pad';
 import { fixed } from '../Fixed';
 import colorette from 'colorette';
+import { ifElse } from '../IfElse';
 
 colorette.options.enabled = true;
 
@@ -25,4 +26,15 @@ test('should build fragments to string', () => {
     'is awesome'
   )}`;
   expect(JSON.stringify(text)).toEqual(JSON.stringify(expected));
+});
+
+test('ifElse fragment should render correct fragmnent', () => {
+  expect(ifElse(true, 'Hello', 'Bye').build()).toEqual('Hello');
+  expect(ifElse(1, 'Hello', 'Bye').build()).toEqual('Hello');
+  expect(ifElse(undefined, 'Hello', 'Bye').build()).toEqual('Bye');
+  // tslint:disable-next-line: no-null-keyword
+  expect(ifElse(null, 'Hello', 'Bye').build()).toEqual('Bye');
+  expect(ifElse(true, 'Hello').build()).toEqual('Hello');
+  expect(ifElse(false, 'Hello').build()).toEqual('');
+  expect(ifElse(() => true, 'Hello', 'Bye').build()).toEqual('Hello');
 });
