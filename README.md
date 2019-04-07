@@ -18,7 +18,6 @@ A tiny library with builders to help making logs/CLI pretty with a nice DX.
       - [`container`](#container)
       - [`pad`](#pad)
       - [`fixed`](#fixed)
-      - [`ifElse`](#ifelse)
       - [`provide`](#provide)
 
 ## Installation
@@ -137,31 +136,6 @@ fixed(5, 'start', 'ERR'); // => '  ERR'
 fixed(8, 'end', color('green', 'success')); // equals to color('green', 'success') + ' '
 fixed(10, 'end', 'Hello', pad(2), 'World') // => 'Hello  Wor'
 ```
-
-#### `ifElse`
-
-```ts
-ifElse(
-  condition: Condition,
-  ifTrueFragment: string | IFragment,
-  elseFragment: string | IFragment
-): IFragment
-
-type ConditionValue = boolean | string | number | null | undefined;
-type Condition = ConditionValue | (() => ConditionValue);
-```
-
-Change the output based on condition. Condition can ba a primitive value, which can be casted to boolean or a function. If conation or return value of condition is evaluated to `true`, the first argument - `ifTrueFragment` will be used, otherwise `elseFragment`.
-
-```js
-let condition = getConditionValue()
-ifElse(
-  () => condition,
-  color('red', 'ERROR'),
-  color('yellow', 'WARNING')
-)
-```
-
 
 #### `provide`
 
